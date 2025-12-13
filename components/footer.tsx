@@ -30,7 +30,7 @@ export function Footer() {
 
           {/* Destinations */}
           <div>
-            <h4 className="font-semibold mb-4">Destinations</h4>
+            <h4 className="font-semibold mb-4">Our Tours</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
