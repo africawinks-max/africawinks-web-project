@@ -74,6 +74,15 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+.meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

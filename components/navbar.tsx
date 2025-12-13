@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { AfricaWinksLogo } from "./AfricaWinksLogo"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -25,13 +26,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <img
-              src="/logo-sample.jpg"
-              alt="Africawinks Logo"
-              className="h-16 w-16 md:h-36 md:w-36 rounded-md object-cover shadow-sm "
-            />
-          </div>
+          <AfricaWinksLogo />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-12">

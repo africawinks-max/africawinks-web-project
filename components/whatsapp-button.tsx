@@ -26,7 +26,7 @@ export function WhatsButton() {
 
   const handleWhatsAppClick = () => {
     // Replace with your WhatsApp number (include country code without + or 00)
-    const phoneNumber = "+27"
+    const phoneNumber = "+27629582290"
     const message = encodeURIComponent("Hi! I'm interested in your travel packages.")
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }
@@ -35,7 +35,7 @@ export function WhatsButton() {
     <Button
       onClick={handleWhatsAppClick}
       size="lg"
-      className={`fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-lg transition-all duration-300 p-0 ${
+      className={`fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full bg-[#25D366] hover:bg-[#20BA5A]  text-white shadow-lg transition-all duration-300 p-0 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
       }`}
       aria-label="Contact us on WhatsApp"

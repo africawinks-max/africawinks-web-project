@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
+import { AfricaWinksLogo } from "./AfricaWinksLogo"
 
 export function Footer() {
   return (
@@ -7,9 +8,9 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold">Wanderlust</h3>
+            <AfricaWinksLogo />
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Creating unforgettable travel experiences around the world since 2010
+              Creating unforgettable travel experiences around Cape Town since 2010
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -33,27 +34,17 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Europe
+                  Bo-Kaap
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Asia
+                  Woodstock Street Art Walk
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  Africa
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Americas
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Oceania
+                 Historic City & Company’s Garden Walk
                 </a>
               </li>
             </ul>
@@ -68,16 +59,7 @@ export function Footer() {
                   About Us
                 </a>
               </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-foreground transition-colors">
-                  Press
-                </a>
-              </li>
+    
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
                   Blog
@@ -126,7 +108,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© 2025 Wanderlust Travel Agency. All rights reserved.</p>
+          <p>© 2025 AfricaWinks  Travel Agency. All rights reserved.</p>
         </div>
       </div>
     </footer>
