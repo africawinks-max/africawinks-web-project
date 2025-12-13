@@ -10,7 +10,7 @@ export function Footer() {
           <div className="space-y-4">
             <AfricaWinksLogo />
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Creating unforgettable travel experiences around Cape Town since 2010
+              Creating unforgettable travel experiences around Cape Town since 2025
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">

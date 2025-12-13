@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Prompt } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import { SmoothScroll } from "@/components/smooth-scroll"
 import "./globals.css"
 
 const prompt = Prompt({

@@ -18,6 +18,16 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault()
+    setIsMobileMenuOpen(false)
+
+    const element = document.getElementById(targetId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -33,21 +43,26 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-12">
             <a
               href="#destinations"
+              onClick={(e) => handleNavClick(e, "destinations")}
               className="text-sm font-medium text-foreground/70 hover:text-[#93693a] transition-colors"
             >
               Destinations
             </a>
             <a
               href="#gallery"
+              onClick={(e) => handleNavClick(e, "gallery")}
               className="text-sm font-medium text-foreground/70 hover:text-[#93693a] transition-colors"
             >
               Our Gallery
             </a>
-            <a href="#about" className="text-sm font-medium text-foreground/70 hover:text-[#93693a] transition-colors">
+            <a href="#about"
+              onClick={(e) => handleNavClick(e, "about")}
+              className="text-sm font-medium text-foreground/70 hover:text-[#93693a] transition-colors">
               Why Choose Us
             </a>
             <a
               href="#contact"
+              onClick={(e) => handleNavClick(e, "contact")}
               className="text-sm font-medium text-foreground/70 hover:text-[#93693a]/70 transition-colors"
             >
               Contact
@@ -74,16 +89,21 @@ export function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-border">
           <div className="px-6 py-6 space-y-4">
-            <a href="#destinations" className="block text-base font-medium text-foreground/70 hover:text-foreground">
+            <a href="#destinations" 
+              onClick={(e) => handleNavClick(e, "destinations")}
+              className="block text-base font-medium text-foreground/70 hover:text-foreground">
               Destinations
             </a>
-            <a href="#gallery" className="block text-base font-medium text-foreground/70 hover:text-foreground">
+            <a href="#gallery" onClick={(e) => handleNavClick(e, "gallery")}  className="block text-base font-medium text-foreground/70 hover:text-foreground">
               Our Gallery
             </a>
-            <a href="#about" className="block text-base font-medium text-foreground/70 hover:text-foreground">
+            <a href="#about"
+              onClick={(e) => handleNavClick(e, "about")}
+            className="block text-base font-medium text-foreground/70 hover:text-foreground">
               Why Choose Us
             </a>
-            <a href="#contact" className="block text-base font-medium text-foreground/70 hover:text-foreground">
+            <a href="#contact" 
+               onClick={(e) => handleNavClick(e, "contact")} className="block text-base font-medium text-foreground/70 hover:text-foreground">
               Contact
             </a>
             <BookingDialog>
