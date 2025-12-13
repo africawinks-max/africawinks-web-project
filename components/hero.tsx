@@ -9,7 +9,7 @@ export function Hero() {
         <img
           src="/background.jpeg"
           alt="Africawinks Hero section background image"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-30 animate-pan"
         />
       </div>
 

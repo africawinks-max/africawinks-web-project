@@ -5,6 +5,7 @@ import { WhyChooseUs } from "@/components/why-choose-us"
 import { PopularPackages } from "@/components/popular-packages"
 import { Newsletter } from "@/components/newsletter"
 import { Footer } from "@/components/footer"
+import { WhatsButton } from "@/components/whatsapp-button"
 
 export default function Home() {
   return (
@@ -14,8 +15,9 @@ export default function Home() {
       {/* <FeaturedDestinations />
       <WhyChooseUs />
       <PopularPackages />
-      <Newsletter />
-      <Footer /> */}
+      <Newsletter /> */}
+      <Footer /> 
+      <WhatsButton />
     </main>
   )
 }

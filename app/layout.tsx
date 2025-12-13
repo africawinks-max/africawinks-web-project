@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/logo-sample.jpg", // transparent logo
-        width: 1200,
+        width: 630,
         height: 630,
         alt: "Africawinks logo – Africa winking with cultural patterns",
       },
