@@ -4,7 +4,7 @@ const features = [
   {
     icon: Globe,
     title: "Global Cape Town Network",
-    description: "Access to 50+ destinations in Cape Town with local expertise and authentic experiences",
+    description: "Access to the best  destinations in Cape Town with local expertise and authentic experiences",
   },
   {
     icon: Shield,
