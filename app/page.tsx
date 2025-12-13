@@ -6,18 +6,20 @@ import { PopularPackages } from "@/components/popular-packages"
 import { Newsletter } from "@/components/newsletter"
 import { Footer } from "@/components/footer"
 import { WhatsButton } from "@/components/whatsapp-button"
-import { MarqueeGallery } from "@/components/marquee-gallery"
+import { ImageCarouselSection } from "@/components/image-carousel"
+
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <WhyChooseUs />
+      <ImageCarouselSection />
       <FeaturedDestinations />
-      {/*<WhyChooseUs />
-      <PopularPackages />
-      <Newsletter /> */}
-      <MarqueeGallery />
+      {/*<PopularPackages /> */}
+      <Newsletter />
+  
       <Footer /> 
       <WhatsButton />
     </main>
