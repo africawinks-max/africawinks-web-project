@@ -54,7 +54,7 @@ export function BookingDialog({ children }: BookingDialogProps) {
         <div className=" bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground p-2 sm:pb-8">
             <DialogHeader>
               <DialogTitle className="text-xl font-bold text-white">Book Your Adventure 🚶</DialogTitle>
-              <DialogDescription className="text-primary-foreground/80 text-base">
+              <DialogDescription className="hidden sm:block text-primary-foreground/80 text-base">
                 Fill in your details and we will get back to you within 24 hours
               </DialogDescription>
             </DialogHeader>

@@ -18,7 +18,7 @@ export default function Home() {
       <ImageCarouselSection />
       <FeaturedDestinations />
       {/*<PopularPackages /> */}
-      <Newsletter />
+      {/* <Newsletter /> */}
   
       <Footer /> 
       <WhatsButton />
