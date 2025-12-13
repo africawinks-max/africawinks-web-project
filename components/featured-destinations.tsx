@@ -29,7 +29,7 @@ const destinations = [
     ],
     duration: "± 2.5 hours",
     difficulty: "Easy",
-    image: "/Table-Mountain-and-Bo-Kaap.jpg",
+    image: "/the-gardens-cape-town.jpg",
     cta: "Apply for a Quote",
     seo: {
       slug: "historic-city-walking-tour-cape-town",
@@ -51,7 +51,7 @@ const destinations = [
     ],
     duration: "± 2 hours",
     difficulty: "Easy",
-    image: "/Table-Mountain-and-Bo-Kaap.jpg",
+    image: "/woodstock-cape-town.jpg",
     cta: "Apply for a Quote",
     seo: {
       slug: "woodstock-street-art-walking-tour",
