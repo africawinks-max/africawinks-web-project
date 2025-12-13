@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { AfricaWinksLogo } from "./AfricaWinksLogo"
+import { BookingDialog } from "./booking-dialog"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -37,13 +38,13 @@ export function Navbar() {
               Destinations
             </a>
             <a
-              href="#packages"
+              href="#gallery"
               className="text-sm font-medium text-foreground/70 hover:text-[#93693a] transition-colors"
             >
-              Packages
+              Our Gallery
             </a>
             <a href="#about" className="text-sm font-medium text-foreground/70 hover:text-[#93693a] transition-colors">
-              About
+              Why Choose Us
             </a>
             <a
               href="#contact"
@@ -55,9 +56,11 @@ export function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="bg-[#93693a] text-primary-foreground hover:bg-primary rounded-full px-6">
-              Book Now
-            </Button>
+            <BookingDialog>
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6">
+                Book Now
+              </Button>
+            </BookingDialog>
           </div>
 
           {/* Mobile Menu Button */}
@@ -74,18 +77,20 @@ export function Navbar() {
             <a href="#destinations" className="block text-base font-medium text-foreground/70 hover:text-foreground">
               Destinations
             </a>
-            <a href="#packages" className="block text-base font-medium text-foreground/70 hover:text-foreground">
-              Packages
+            <a href="#gallery" className="block text-base font-medium text-foreground/70 hover:text-foreground">
+              Our Gallery
             </a>
             <a href="#about" className="block text-base font-medium text-foreground/70 hover:text-foreground">
-              About
+              Why Choose Us
             </a>
             <a href="#contact" className="block text-base font-medium text-foreground/70 hover:text-foreground">
               Contact
             </a>
-            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full">
-              Book Now
-            </Button>
+            <BookingDialog>
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6">
+                Book Now
+              </Button>
+            </BookingDialog>
           </div>
         </div>
       )}

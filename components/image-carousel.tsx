@@ -58,11 +58,11 @@ export function ImageCarouselSection() {
   ]
 
   return (
-    <section className="relative overflow-hidden w-full py-20 bg-background">
+    <section id="gallery" className="relative overflow-hidden w-full py-20 bg-background">
       <div className="container mx-auto px-4 mb-12 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4"><span className="gold">Art</span> Gallery</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Explore vibrant street art and murals from around the world
+          Explore vibrant street art and murals from artisits around the world
         </p>
       </div>
       <ImageCarousel slides={slideData} />

@@ -99,17 +99,6 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
           />
           {current === index && <div className="absolute inset-0 bg-black/30 transition-all duration-1000" />}
         </div>
-
-        <article
-          className={`relative p-[4vmin] transition-opacity duration-1000 ease-in-out ${
-            current === index ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
-        >
-          <h2 className="text-lg md:text-2xl lg:text-4xl font-semibold  relative">{title}</h2>
-          <div className="flex justify-center">
-         
-          </div>
-        </article>
       </li>
     </div>
   )
