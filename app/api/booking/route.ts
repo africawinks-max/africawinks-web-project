@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 })
     }
 
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "Africa Winks Travel <admin@africawinks.co.za>",
       to: ADMIN_EMAIL,
       subject: "🚀 New Booking Request Received!",
@@ -102,7 +102,11 @@ export async function POST(request: Request) {
       `,
     })
 
-    await resend.emails.send({
+    if (error) {
+      console.error("Booking API Error from Admin:", error)
+    }
+
+    const customEmail = await resend.emails.send({
       from: "Africa Winks Travel <hello@africawinks.co.za>",
       to: email,
       subject: "✨ Your Adventure Awaits - Booking Confirmation",
@@ -205,6 +209,12 @@ export async function POST(request: Request) {
         </html>
       `,
     })
+
+    if (customEmail.error) {
+      console.error("Booking API Error from Admin:", error)
+    }
+
+    
     
 
     return NextResponse.json(
