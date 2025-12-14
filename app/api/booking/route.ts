@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const ADMIN_EMAIL = "africawinks@gmail.com"
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL!;
 
 export async function POST(request: Request) {
   try {
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: "Africa Winks Travel <hello@africawinks.co.za>",
+      from: "Africa Winks Travel <admin@africawinks.co.za>",
       to: ADMIN_EMAIL,
       subject: "🚀 New Booking Request Received!",
       html: `
