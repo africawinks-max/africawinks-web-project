@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: "Africa Winks Travel <africawinks@gmail.com>",
+      from: "Africa Winks Travel <hello@africawinks.co.za>",
       to: ADMIN_EMAIL,
       subject: "🚀 New Booking Request Received!",
       html: `
@@ -103,7 +103,7 @@ export async function POST(request: Request) {
     })
 
     await resend.emails.send({
-      from: "Africa Winks Travel <africawinks@gmail.com>",
+      from: "Africa Winks Travel <hello@africawinks.co.za>",
       to: email,
       subject: "✨ Your Adventure Awaits - Booking Confirmation",
       html: `
