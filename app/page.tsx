@@ -16,7 +16,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WhyChooseUs />
-      <ReviewsSection />
+      {/* <ReviewsSection /> */}
       <ImageCarouselSection />
       <FeaturedDestinations />
       {/*<PopularPackages /> */}
