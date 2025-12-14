@@ -15,7 +15,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import {  Users, Mail, Phone, User, Package } from "lucide-react"
+import {  Users, Mail, Phone, User, Package, Loader2 } from "lucide-react"
+import { useToast } from "@/hooks/use-toast"
 
 interface BookingDialogProps {
   children: React.ReactNode
@@ -23,6 +24,8 @@ interface BookingDialogProps {
 
 export function BookingDialog({ children }: BookingDialogProps) {
   const [open, setOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const { toast } = useToast()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,19 +34,47 @@ export function BookingDialog({ children }: BookingDialogProps) {
     package: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Booking submitted:", formData)
-    // Handle form submission here
-    setOpen(false)
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      contact: "",
-      people: "",
-      package: "",
-    })
+    setIsLoading(true)
+
+    try {
+      const response = await fetch("/api/booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        toast({
+          title: "Booking Request Submitted!",
+          description: "We'll get back to you within 24 hours. Check your email for confirmation.",
+        })
+        setOpen(false)
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          contact: "",
+          people: "",
+          package: "",
+        })
+      } else {
+        throw new Error(data.error || "Failed to submit booking")
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -74,6 +105,7 @@ export function BookingDialog({ children }: BookingDialogProps) {
                 <Input
                     id="name"
                     placeholder="John Doe"
+                    disabled={isLoading}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
@@ -90,6 +122,7 @@ export function BookingDialog({ children }: BookingDialogProps) {
                 <Input
                     id="email"
                     type="email"
+                    disabled={isLoading}
                     placeholder="john@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -111,6 +144,7 @@ export function BookingDialog({ children }: BookingDialogProps) {
                     type="tel"
                     placeholder="+1 (555) 000-0000"
                     value={formData.contact}
+                    disabled={isLoading}
                     onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                     required
                     className="h-11"
@@ -123,7 +157,7 @@ export function BookingDialog({ children }: BookingDialogProps) {
                     <Users className="h-4 w-4 text-muted-foreground" />
                     Number of People
                 </Label>
-                <Select value={formData.people} onValueChange={(value) => setFormData({ ...formData, people: value })}>
+                <Select  disabled={isLoading} value={formData.people} onValueChange={(value) => setFormData({ ...formData, people: value })}>
                     <SelectTrigger className="h-11 w-full">
                     <SelectValue placeholder="Select number of travelers" />
                     </SelectTrigger>
@@ -146,7 +180,10 @@ export function BookingDialog({ children }: BookingDialogProps) {
                 <Package className="h-4 w-4 text-muted-foreground" />
                 Travel Package
             </Label>
-            <Select value={formData.package} onValueChange={(value) => setFormData({ ...formData, package: value })}>
+            <Select 
+              value={formData.package} 
+              onValueChange={(value) => setFormData({ ...formData, package: value })}
+              disabled={isLoading} >
                 <SelectTrigger className="h-11 w-full">
                 <SelectValue placeholder="Select a package" />
                 </SelectTrigger>
@@ -163,9 +200,20 @@ export function BookingDialog({ children }: BookingDialogProps) {
           {/* Submit Button */}
           <Button
             type="submit"
-            className="w-full h-12 text-base font-semibold bg-primary hover:bg-primary/90 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            className="w-full h-12 text-base font-semibold 
+            bg-primary hover:bg-primary/90 rounded-full 
+            shadow-lg hover:shadow-xl transition-all 
+            duration-300"
+            disabled={isLoading}
           >
-            Submit Booking Request
+            {isLoading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Submitting...
+              </>
+            ) : (
+              "Submit Booking Request"
+            )}
           </Button>
            </div>
 

@@ -7,6 +7,7 @@ import { Newsletter } from "@/components/newsletter"
 import { Footer } from "@/components/footer"
 import { WhatsButton } from "@/components/whatsapp-button"
 import { ImageCarouselSection } from "@/components/image-carousel"
+import { ReviewsSection } from "@/components/reviews-section"
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WhyChooseUs />
+      <ReviewsSection />
       <ImageCarouselSection />
       <FeaturedDestinations />
       {/*<PopularPackages /> */}

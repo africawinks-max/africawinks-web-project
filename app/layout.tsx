@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import "./globals.css"
+import { Toaster } from "@/components/ui/toaster"
 
 const prompt = Prompt({
   weight: ["300", "400", "500", "600", "700"],
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     default: "Africawinks | Authentic Walking Tours in Cape Town",
     template: "%s | Africawinks Walking Tours",
   },
-
+  
   description:
     "Africawinks offers authentic, locally guided walking tours in Cape Town. Discover culture, history, hidden streets, and stories of Africa — and the whole world winks back.",
 
@@ -100,6 +101,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${prompt.variable} antialiased`}>
         <Suspense fallback={null}>{children}</Suspense>
+        <Toaster />
         <Analytics />
       </body>
     </html>
