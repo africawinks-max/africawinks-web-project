@@ -17,6 +17,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import {  Users, Mail, Phone, User, Package, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import confetti from "canvas-confetti"
 
 interface BookingDialogProps {
   children: React.ReactNode
@@ -49,13 +50,46 @@ export function BookingDialog({ children }: BookingDialogProps) {
 
       const data = await response.json()
 
-      if (response.ok) {
+       if (response.ok) {
+        const duration = 3000
+        const end = Date.now() + duration
+
+        const colors = ["#667eea", "#764ba2", "#f59e0b", "#10b981"]
+
+        const frame = () => {
+          confetti({
+            particleCount: 3,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: colors,
+          })
+          confetti({
+            particleCount: 3,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors,
+          })
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame)
+          }
+        }
+        frame()
+
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: colors,
+        })
+
         toast({
           title: "Booking Request Submitted!",
           description: "We'll get back to you within 24 hours. Check your email for confirmation.",
         })
         setOpen(false)
-        // Reset form
         setFormData({
           name: "",
           email: "",
@@ -104,6 +138,7 @@ export function BookingDialog({ children }: BookingDialogProps) {
                 </Label>
                 <Input
                     id="name"
+                    
                     placeholder="John Doe"
                     disabled={isLoading}
                     value={formData.name}
