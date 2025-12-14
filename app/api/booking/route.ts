@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: "Africa Winks Travel <onboarding@resend.dev>",
+      from: "Africa Winks Travel <africawinks@gmail.com>",
       to: ADMIN_EMAIL,
       subject: "🚀 New Booking Request Received!",
       html: `
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
                   <tr>
                     <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 50px 40px; text-align: center; position: relative;">
                       <div style="background: rgba(255, 255, 255, 0.1); width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; border: 4px solid rgba(255, 255, 255, 0.2);">
-                        <img src="/logo-sample.jpg" alt="Africa Winks Travel" style="width: 80px; height: 80px; object-fit: contain;" />
+                        <img src="https://www.africawinks.co.za/logo-sample.jpg" alt="Africa Winks Travel" style="width: 80px; height: 80px; object-fit: contain;" />
                       </div>
                       <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: 800; letter-spacing: -0.5px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">New Booking Alert!</h1>
                       <p style="margin: 10px 0 0; color: rgba(255, 255, 255, 0.95); font-size: 16px;">🎉 Exciting news from your travel platform</p>
@@ -103,7 +103,7 @@ export async function POST(request: Request) {
     })
 
     await resend.emails.send({
-      from: "Africa Winks Travel <onboarding@resend.dev>",
+      from: "Africa Winks Travel <africawinks@gmail.com>",
       to: email,
       subject: "✨ Your Adventure Awaits - Booking Confirmation",
       html: `
@@ -122,7 +122,7 @@ export async function POST(request: Request) {
                   <tr>
                     <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 50px 40px; text-align: center; position: relative;">
                       <div style="background: rgba(255, 255, 255, 0.1); width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; border: 4px solid rgba(255, 255, 255, 0.2);">
-                        <img src="/logo-sample.jpg" alt="Africa Winks Travel" style="width: 80px; height: 80px; object-fit: contain;" />
+                        <img src="https://www.africawinks.co.za/logo-sample.jpg" alt="Africa Winks Travel" style="width: 80px; height: 80px; object-fit: contain;" />
                       </div>
                       <h1 style="margin: 0; color: #ffffff; font-size: 36px; font-weight: 800; letter-spacing: -0.5px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">Your Adventure Awaits!</h1>
                       <p style="margin: 10px 0 0; color: rgba(255, 255, 255, 0.95); font-size: 18px;">✨ Get ready for an unforgettable journey</p>
