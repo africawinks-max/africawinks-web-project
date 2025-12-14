@@ -102,7 +102,7 @@ export async function POST(request: Request) {
       `,
     })
 
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "Africa Winks Travel <onboarding@resend.dev>",
       to: email,
       subject: "✨ Your Adventure Awaits - Booking Confirmation",
@@ -205,6 +205,12 @@ export async function POST(request: Request) {
         </html>
       `,
     })
+
+    if (error) {
+       console.error("Booking API Error:", error)
+      return NextResponse.json({ error: "Failed to send a second confirmation" }, { status: 500 })
+    }
+    
 
     return NextResponse.json(
       {
