@@ -104,7 +104,7 @@ export async function POST(request: Request) {
 
     await resend.emails.send({
       from: "Africa Winks Travel <onboarding@resend.dev>",
-      to: 'africawinks@icloud.com',
+      to: email,
       subject: "✨ Your Adventure Awaits - Booking Confirmation",
       html: `
         <!DOCTYPE html>
