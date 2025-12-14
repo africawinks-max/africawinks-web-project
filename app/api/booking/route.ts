@@ -25,16 +25,16 @@ export async function POST(request: Request) {
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="margin: 0; padding: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+        <body style="margin: 0; padding: 0; background: linear-gradient(135deg, #93693a 0%, #f1ede8fa 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
           <table width="100%" cellpadding="0" cellspacing="0" style="padding: 40px 20px;">
             <tr>
               <td align="center">
                 <table width="600" cellpadding="0" cellspacing="0" style="background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
                   <!-- Header with Logo -->
                   <tr>
-                    <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 50px 40px; text-align: center; position: relative;">
+                    <td style="background: linear-gradient(135deg, #754e21ff 0%, #977f63ff 100%); padding: 50px 40px; text-align: center; position: relative;">
                       <div style="background: rgba(255, 255, 255, 0.1); width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; border: 4px solid rgba(255, 255, 255, 0.2);">
-                        <img src="https://www.africawinks.co.za/logo-sample.jpg" alt="Africa Winks Travel" style="width: 80px; height: 80px; object-fit: contain;" />
+                        <img src="https://www.africawinks.co.za/logo-sample.jpg" alt="Africa Winks Travel" style="width: 120px; height: 120px;  border-radius: 50%; object-fit: contain;" />
                       </div>
                       <h1 style="margin: 0; color: #ffffff; font-size: 32px; font-weight: 800; letter-spacing: -0.5px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">New Booking Alert!</h1>
                       <p style="margin: 10px 0 0; color: rgba(255, 255, 255, 0.95); font-size: 16px;">🎉 Exciting news from your travel platform</p>
@@ -74,14 +74,14 @@ export async function POST(request: Request) {
                           <tr>
                             <td style="padding: 12px 0;">
                               <span style="color: #64748b; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Package</span>
-                              <p style="margin: 5px 0 0; color: #667eea; font-size: 18px; font-weight: 700;">${packageName}</p>
+                              <p style="margin: 5px 0 0; color: #1e293b; font-size: 18px; font-weight: 700;">${packageName}</p>
                             </td>
                           </tr>
                         </table>
                       </div>
                       
                       <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 20px; border-left: 4px solid #f59e0b;">
-                        <p style="margin: 0; color: #92400e; font-size: 14px; line-height: 1.6;">⚡ <strong>Action Required:</strong> Please follow up with the customer within 24 hours to confirm their booking and discuss the travel details.</p>
+                        <p style="margin: 0; color: #1e293b; font-size: 14px; line-height: 1.6;">⚡ <strong>Action Required:</strong> Please follow up with the customer within 24 hours to confirm their booking and discuss the travel details.</p>
                       </div>
                     </td>
                   </tr>
@@ -113,16 +113,16 @@ export async function POST(request: Request) {
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="margin: 0; padding: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+        <body style="margin: 0; padding: 0; background: linear-gradient(135deg, #93693a 0%, #f1ede8fa 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
           <table width="100%" cellpadding="0" cellspacing="0" style="padding: 40px 20px;">
             <tr>
               <td align="center">
                 <table width="600" cellpadding="0" cellspacing="0" style="background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
                   <!-- Hero Header -->
                   <tr>
-                    <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 50px 40px; text-align: center; position: relative;">
+                    <td style="background: linear-gradient(135deg, #754e21ff 0%, #977f63ff 100%); padding: 50px 40px; text-align: center; position: relative;">
                       <div style="background: rgba(255, 255, 255, 0.1); width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; border: 4px solid rgba(255, 255, 255, 0.2);">
-                        <img src="https://www.africawinks.co.za/logo-sample.jpg" alt="Africa Winks Travel" style="width: 80px; height: 80px; object-fit: contain;" />
+                        <img src="https://www.africawinks.co.za/logo-sample.jpg" alt="Africa Winks Travel" style="width: 120px; border-radius: 50%; height: 120px; object-fit: contain;" />
                       </div>
                       <h1 style="margin: 0; color: #ffffff; font-size: 36px; font-weight: 800; letter-spacing: -0.5px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);">Your Adventure Awaits!</h1>
                       <p style="margin: 10px 0 0; color: rgba(255, 255, 255, 0.95); font-size: 18px;">✨ Get ready for an unforgettable journey</p>
@@ -192,7 +192,7 @@ export async function POST(request: Request) {
                   <tr>
                     <td style="background: #f8fafc; padding: 30px; text-align: center; border-top: 1px solid #e2e8f0;">
                       <p style="margin: 0 0 5px; color: #475569; font-size: 14px; font-weight: 600;">Safe adventure,</p>
-                      <p style="margin: 0 0 15px; color: #667eea; font-size: 16px; font-weight: 700;">The Africa Winks Tours Team</p>
+                      <p style="margin: 0 0 15px; color: #93693a; font-size: 16px; font-weight: 700;">The Africa Winks Tours Team</p>
                       <div style="margin: 20px 0; height: 1px; background: #e2e8f0;"></div>
                       <p style="margin: 0; color: #94a3b8; font-size: 12px; line-height: 1.5;">© 2025 Africa Winks Travel. All rights reserved.<br/>Your adventure partner for unforgettable experiences.</p>
                     </td>

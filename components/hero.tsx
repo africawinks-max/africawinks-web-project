@@ -26,7 +26,7 @@ export function Hero() {
             explorer lens.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+          {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
             <Button
               size="lg"
               className="bg-[#93693a] text-primary-foreground hover:bg-primary rounded-full px-8 h-14 text-base group"
@@ -37,11 +37,11 @@ export function Hero() {
             <Button size="lg" variant="outline" className="rounded-full px-8 h-14 text-base border-2 border-[#93693a] bg-transparent">
               View Packages
             </Button>
-          </div>
+          </div> */}
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-8 md:gap-16 max-w-3xl mx-auto mt-24 pt-16 border-t border-border/50">
+        {/* <div className="grid grid-cols-3 gap-8 md:gap-16 max-w-3xl mx-auto mt-24 pt-16 border-t border-border/50">
           <div className="space-y-2">
             <div className="text-4xl md:text-5xl font-medium">150+</div>
             <div className="text-sm text-foreground opacity-80">Destinations</div>
@@ -54,7 +54,7 @@ export function Hero() {
             <div className="text-4xl md:text-5xl font-medium">4.9</div>
             <div className="text-sm text-foreground opacity-80">Average Rating</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )
