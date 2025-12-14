@@ -104,6 +104,10 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error("Booking API Error from Admin:", error)
+    } else {
+      
+      console.log("Email was sent successfull to: ", {ADMIN_EMAIL})
+    
     }
 
     const customEmail = await resend.emails.send({
@@ -212,6 +216,10 @@ export async function POST(request: Request) {
 
     if (customEmail.error) {
       console.error("Booking API Error from Admin:", error)
+    }  else {
+      
+      console.log("Email was sent successfull to: ", {email})
+    
     }
 
     
