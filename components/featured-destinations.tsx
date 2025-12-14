@@ -213,11 +213,11 @@ export function FeaturedDestinations() {
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <Button variant="outline" size="lg" className="rounded-full px-8 border-2 bg-transparent">
             View All Destinations
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   )
