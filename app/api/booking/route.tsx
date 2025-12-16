@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     }
 
     const { data, error } = await resend.emails.send(({
-    from: "Africawinks <hello@africawinks.com>",
+    from: "Africawinks <hello@africawinks.co.za>",
     to: "africawinks@gmail.com",
     subject: "Welcome to Africawinks 👣",
     react: <EmailTemplate firstName="John" />,
