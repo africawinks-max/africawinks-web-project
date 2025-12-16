@@ -187,7 +187,7 @@ export function ContactSection() {
 
               {/* Decorative card */}
               <motion.div
-                className="relative p-8 rounded-3xl bg-gradient-to-br from-primary/10 via-purple-500/10 to-pink-500/10 border border-primary/20 overflow-hidden"
+                className="relative p-8 rounded-3xl  border border-primary/20 overflow-hidden"
                 whileHover={{ scale: 1.02 }}
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-2xl" />
@@ -199,101 +199,6 @@ export function ContactSection() {
             </div>
           </AnimateOnView>
 
-          {/* Contact Form */}
-          <AnimateOnView variant="fadeLeft" delay={0.2}>
-            <motion.div
-              className="relative p-8 rounded-3xl bg-card border border-border/50 shadow-2xl backdrop-blur-sm"
-              whileHover={{ boxShadow: "0 20px 50px rgba(0,0,0,0.1)" }}
-            >
-              {/* Gradient border effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 via-purple-500/20 to-pink-500/20 blur-xl opacity-50" />
-
-              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-sm font-semibold">
-                    Your Name
-                  </Label>
-                  <Input
-                    id="name"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="h-12 rounded-xl border-2 focus:border-primary transition-colors"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-sm font-semibold">
-                    Email Address
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="john@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    className="h-12 rounded-xl border-2 focus:border-primary transition-colors"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-sm font-semibold">
-                    Phone Number
-                  </Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    placeholder="+1 (555) 123-4567"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    required
-                    className="h-12 rounded-xl border-2 focus:border-primary transition-colors"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-sm font-semibold">
-                    Your Message
-                  </Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Tell us about your dream destination..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    rows={5}
-                    className="rounded-xl border-2 focus:border-primary transition-colors resize-none"
-                  />
-                </div>
-
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full h-14 rounded-xl text-base font-semibold bg-gradient-to-r from-primary via-[#93693a] to-black-500 hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center gap-2">
-                        <motion.div
-                          className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-                        />
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        <Send className="h-5 w-5" />
-                        Send Message
-                      </span>
-                    )}
-                  </Button>
-                </motion.div>
-              </form>
-            </motion.div>
-          </AnimateOnView>
         </div>
       </div>
     </section>
