@@ -35,6 +35,15 @@ export const metadata: Metadata = {
     "authentic African experiences",
   ],
 
+  icons: {
+    icon: [
+      { url: "/logo-sample.jpg", sizes: "32x32", type: "image/png" },
+      { url: "/logo-sample.jpg", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/logo-sample.jpg", sizes: "180x180", type: "image/png" }],
+    shortcut: "/logo-sample.jpg",
+  },
+
   authors: [{ name: "Africawinks" }],
   creator: "Africawinks",
   publisher: "Africawinks",
