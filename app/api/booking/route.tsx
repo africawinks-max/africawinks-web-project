@@ -1,11 +1,15 @@
-import { EmailTemplate } from "@/components/EmailTemplate";
 import { NextResponse } from "next/server"
 import { Resend } from "resend"
+import EmailTemplate from "@/components/EmailTemplate";
+import { render } from "@react-email/render";
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL!;
 
 export async function POST(request: Request) {
+  const html = render(
+    <EmailTemplate firstName="John" />
+  );
   try {
     const body = await request.json()
     const { name, email, contact, people, package: packageName } = body
@@ -15,12 +19,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 })
     }
 
-    const { data, error } = await resend.emails.send({
-      from: 'Africawinks <hello@africawinks.co.za>',
-      to: ['africawinks@gmail.com'],
-      subject: 'Hello world, We are high on life',
-      react: EmailTemplate({ firstName: 'High bruu' }),
-    });
+    const { data, error } = await resend.emails.send(({
+    from: "Africawinks <hello@africawinks.com>",
+    to: "africawinks@gmail.com",
+    subject: "Welcome to Africawinks 👣",
+    react: <EmailTemplate firstName="John" />,
+  }));
 
     if (error) {
       console.log(error)
