@@ -6,6 +6,7 @@ import { Suspense } from "react"
 import { SmoothScroll } from "@/components/smooth-scroll"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
+import { LoadingScreen } from "@/components/loading-screen"
 
 const prompt = Prompt({
   weight: ["300", "400", "500", "600", "700"],
@@ -100,7 +101,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${prompt.variable} antialiased`}>
-        <Suspense fallback={null}>{children}</Suspense>
+        <Suspense fallback={<LoadingScreen />}>{children}</Suspense>
         <Toaster />
         <Analytics />
       </body>
