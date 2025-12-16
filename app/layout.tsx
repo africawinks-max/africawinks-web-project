@@ -108,3 +108,12 @@ export default function RootLayout({
     </html>
   )
 }
+
+
+// function LoadingWrapper({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode
+// }>) {
+//   return <div>{children}</div>
+// }

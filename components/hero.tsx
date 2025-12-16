@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
@@ -52,7 +53,7 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Explore breathtaking murals around Woodstock and Salt River. Explore more about Africa's rich story and culture. Get to experience south africa and africa at large from an african 
+            Explore breathtaking murals around Woodstock and Salt River. Explore more about Africa's rich story and culture. Get to experience South Africa and Africa at large from an african 
             explorer lens.
           </motion.p>
 
