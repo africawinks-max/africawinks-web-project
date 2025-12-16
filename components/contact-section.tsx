@@ -156,7 +156,7 @@ export function ContactSection() {
                       value: "africawinks@gmail.com",
                       href: "mailto:africawinks@gmail.com",
                     },
-                    { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", href: "tel:+15551234567" },
+                    { icon: Phone, label: "Phone", value: "+27 62 958-2290", href: "tel:+27629582290" },
                     { icon: MapPin, label: "Location", value: "Cape Town, South Africa", href: null },
                   ].map((item, index) => (
                     <motion.div
@@ -272,7 +272,7 @@ export function ContactSection() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full h-14 rounded-xl text-base font-semibold bg-gradient-to-r from-primary via-purple-500 to-pink-500 hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
+                    className="w-full h-14 rounded-xl text-base font-semibold bg-gradient-to-r from-primary via-[#93693a] to-black-500 hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const ADMIN_EMAIL = "africawinks@gmail.com"
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL!;
 
 export async function POST(request: Request) {
   try {
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
                 <table width="600" cellpadding="0" cellspacing="0" style="background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
                   <!-- Header -->
                   <tr>
-                    <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 50px 40px; text-align: center;">
+                    <td style="background: linear-gradient(135deg, #667eea 0%, #93693a 100%); padding: 50px 40px; text-align: center;">
                       <div style="background: rgba(255, 255, 255, 0.1); width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; border: 3px solid rgba(255, 255, 255, 0.2);">
                         <span style="font-size: 48px;">💬</span>
                       </div>
@@ -104,7 +104,7 @@ export async function POST(request: Request) {
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="margin: 0; padding: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+        <body style="margin: 0; padding: 0; background: linear-gradient(135deg, #667eea 0%, #93693a 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
           <table width="100%" cellpadding="0" cellspacing="0" style="padding: 40px 20px;">
             <tr>
               <td align="center">
@@ -154,7 +154,7 @@ export async function POST(request: Request) {
                   <tr>
                     <td style="background: #f8fafc; padding: 30px; text-align: center; border-top: 1px solid #e2e8f0;">
                       <p style="margin: 0 0 5px; color: #475569; font-size: 14px; font-weight: 600;">Best regards,</p>
-                      <p style="margin: 0 0 15px; color: #667eea; font-size: 16px; font-weight: 700;">The Africa Winks Travel Team</p>
+                      <p style="margin: 0 0 15px; color: #93693a; font-size: 16px; font-weight: 700;">The Africa Winks Travel Team</p>
                       <p style="margin: 0; color: #94a3b8; font-size: 12px;">© 2025 Africa Winks Travel. All rights reserved.</p>
                     </td>
                   </tr>
