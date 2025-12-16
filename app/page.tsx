@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer"
 import { WhatsButton } from "@/components/whatsapp-button"
 import { ImageCarouselSection } from "@/components/image-carousel"
 import { ReviewsSection } from "@/components/reviews-section"
+import { ContactSection } from "@/components/contact-section"
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       {/* <ReviewsSection /> */}
       <ImageCarouselSection />
       <FeaturedDestinations />
+      <ContactSection />
       {/*<PopularPackages /> */}
       {/* <Newsletter /> */}
   
