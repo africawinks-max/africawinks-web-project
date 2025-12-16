@@ -2,14 +2,13 @@ import { NextResponse } from "next/server"
 import { Resend } from "resend"
 import EmailTemplate from "@/components/EmailTemplate";
 import { render } from "@react-email/render";
+import ClientAcknowledgementEmail from "@/components/ClientAcknowledgementEmail";
+import AdminNewBookingEmail from "@/components/AdminNewBookingEmail";
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL!;
 
 export async function POST(request: Request) {
-  const html = render(
-    <EmailTemplate firstName="John" />
-  );
   try {
     const body = await request.json()
     const { name, email, contact, people, package: packageName } = body
@@ -19,17 +18,199 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 })
     }
 
-    const { data, error } = await resend.emails.send(({
-    from: "Africawinks <hello@africawinks.co.za>",
-    to: "africawinks@gmail.com",
-    subject: "Welcome to Africawinks 👣",
-    react: <EmailTemplate firstName="John" />,
-  }));
+    /* ----------------------------
+       1️⃣ Client acknowledgement
+    ----------------------------- */
+    const clientHtml = render(
+      <ClientAcknowledgementEmail
+        name={name}
+        tour={packageName}
+      />
+    );
 
-    if (error) {
-      console.log(error)
-      return Response.json({ error }, { status: 500 });
+    try {
+      await resend.emails.send({
+        from: "Africawinks <hello@africawinks.com>",
+        to: email,
+        subject: "✨ We’ve received your Africawinks request",
+        html: `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body style="margin:0;padding:0;background:linear-gradient(135deg,#93693a,#f1ede8);font-family:Arial,Helvetica,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="padding:40px 20px;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.25);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#754e21,#977f63);padding:50px 40px;text-align:center;">
+              <img 
+                src="https://www.africawinks.co.za/logo-sample.jpg"
+                alt="Africa Winks"
+                width="120"
+                height="120"
+                style="border-radius:50%;display:block;margin:0 auto 20px;"
+              />
+              <h1 style="margin:0;color:#ffffff;font-size:30px;font-weight:800;">
+                We’ve Received Your Request ✨
+              </h1>
+              <p style="margin-top:10px;color:#fdfdfd;font-size:16px;">
+                Your adventure with Africa Winks has begun
+              </p>
+            </td>
+          </tr>
+
+          <!-- Content -->
+          <tr>
+            <td style="padding:40px;color:#1e293b;">
+              <h2 style="margin-top:0;">Hi ${name} 👋</h2>
+
+              <p style="font-size:16px;line-height:1.6;color:#334155;">
+                Thank you for reaching out to <strong>Africa Winks</strong>.
+                We’ve successfully received your booking request and our team
+                is already reviewing the details.
+              </p>
+
+              <div style="margin:30px 0;padding:25px;background:#f6f4ef;border-radius:16px;border:1px solid #e7e5e4;">
+                <h3 style="margin-top:0;color:#754e21;">Your Request Summary</h3>
+
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  ${clientRow("Package Selected", packageName)}
+                  ${clientRow("Number of People", String(people))}
+                  ${clientRow("Email Address", email)}
+                </table>
+              </div>
+
+              <div style="padding:20px;background:#fde68a;border-left:4px solid #f59e0b;border-radius:12px;">
+                <p style="margin:0;font-size:14px;color:#1e293b;line-height:1.6;">
+                  ⏳ <strong>What happens next?</strong><br/>
+                  One of our tour specialists will contact you within
+                  <strong>24 hours</strong> to confirm availability and finalize
+                  your experience.
+                </p>
+              </div>
+
+              <div style="text-align:center;margin-top:35px;">
+                <a
+                  href="mailto:africawinks@gmail.com"
+                  style="display:inline-block;padding:14px 34px;background:#754e21;color:#ffffff;text-decoration:none;border-radius:30px;font-weight:600;"
+                >
+                  Contact Africa Winks
+                </a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background:#f8fafc;padding:30px;text-align:center;border-top:1px solid #e5e7eb;">
+              <p style="margin:0 0 8px;color:#64748b;font-size:14px;">
+                Safe travels,
+              </p>
+              <p style="margin:0 0 15px;color:#754e21;font-weight:700;">
+                The Africa Winks Tours Team
+              </p>
+              <p style="margin:0;color:#94a3b8;font-size:12px;">
+                © 2025 Africa Winks Tours · Cape Town
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`,
+      });
+    } catch (err) {
+      console.error("Client email failed:", err);
+      // DO NOT RETURN — admin email must still send
     }
+
+    /* ----------------------------
+       2️⃣ Admin alert
+    ----------------------------- */
+    const adminHtml = await render(
+      <AdminNewBookingEmail
+        name={name}
+        email={email}
+        contact={contact}
+        people={people}
+        packageName={packageName}
+      />
+    );
+
+    await resend.emails.send({
+      from: "Africawinks <hello@africawinks.com>",
+      to: ADMIN_EMAIL,
+      subject: "🚨 New Booking Request Received",
+      html: `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body style="margin:0;padding:0;background:linear-gradient(135deg,#93693a,#f1ede8);font-family:Arial,Helvetica,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="padding:40px 20px;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+
+          <!-- Header -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#754e21,#977f63);padding:50px 40px;text-align:center;">
+              <img src="https://www.africawinks.co.za/logo-sample.jpg" alt="Africa Winks" width="120" height="120" style="border-radius:50%;display:block;margin:0 auto 20px;" />
+              <h1 style="margin:0;color:#ffffff;font-size:30px;">New Booking Alert 🚨</h1>
+              <p style="color:#fefefe;font-size:16px;margin-top:10px;">
+                A new booking request has arrived
+              </p>
+            </td>
+          </tr>
+
+          <!-- Content -->
+          <tr>
+            <td style="padding:40px;">
+              <h2 style="margin-bottom:20px;color:#1e293b;">Customer Details</h2>
+
+              <table width="100%" cellpadding="0" cellspacing="0">
+                ${detailRow("Name", name)}
+                ${detailRow("Email", email)}
+                ${detailRow("Contact", contact)}
+                ${detailRow("People", String(people))}
+                ${detailRow("Package", packageName)}
+              </table>
+
+              <div style="margin-top:30px;padding:20px;background:#fde68a;border-left:4px solid #f59e0b;border-radius:10px;">
+                <strong>Action required:</strong> Follow up within 24 hours.
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background:#f8fafc;padding:30px;text-align:center;">
+              <p style="font-size:12px;color:#94a3b8;">
+                © 2025 Africa Winks Tours
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+`,
+    });
 
     // const { data, error } = await resend.emails.send({
     //   from: "Africa Winks Travel <admin@africawinks.co.za>",
@@ -253,4 +434,29 @@ export async function POST(request: Request) {
     console.error("Booking API Error:", error)
     return NextResponse.json({ error: "Failed to process booking request" }, { status: 500 })
   }
+}
+
+function detailRow(label: string, value: string) {
+  return `
+  <tr>
+    <td style="padding:12px 0;border-bottom:1px solid #e5e7eb;">
+      <strong style="color:#64748b;">${label}</strong><br/>
+      <span style="color:#1e293b;font-size:16px;">${value}</span>
+    </td>
+  </tr>
+  `;
+}
+
+
+/* ===== helper ===== */
+
+function clientRow(label: string, value: string) {
+  return `
+  <tr>
+    <td style="padding:10px 0;border-bottom:1px solid #e5e7eb;">
+      <strong style="color:#78716c;font-size:13px;">${label}</strong><br/>
+      <span style="font-size:16px;color:#1e293b;">${value}</span>
+    </td>
+  </tr>
+  `;
 }
