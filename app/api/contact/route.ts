@@ -16,7 +16,7 @@ export async function POST(request: Request) {
 
     // Send email to admin
     await resend.emails.send({
-      from: "Africa Winks Travel <onboarding@resend.dev>",
+      from: "Africa Winks Travel <inquiry@africawinks.co.za>",
       to: ADMIN_EMAIL,
       subject: `💬 New Contact Message from ${name}`,
       html: `
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
-        <body style="margin: 0; padding: 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+        <body style="margin: 0; padding: 0; background: linear-gradient(135deg, #93693a 0%, #f1ede8fa 100%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
           <table width="100%" cellpadding="0" cellspacing="0" style="padding: 40px 20px;">
             <tr>
               <td align="center">
@@ -94,7 +94,7 @@ export async function POST(request: Request) {
 
     // Send confirmation email to user
     await resend.emails.send({
-      from: "Africa Winks Travel <onboarding@resend.dev>",
+      from: "Africa Winks Travel <admin@africawinks.co.za>",
       to: email,
       subject: "✨ We Received Your Message - Africa Winks Travel",
       html: `
@@ -111,7 +111,7 @@ export async function POST(request: Request) {
                 <table width="600" cellpadding="0" cellspacing="0" style="background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
                   <!-- Header -->
                   <tr>
-                    <td style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 50px 40px; text-align: center;">
+                    <td style="background: linear-gradient(135deg, #93693a 0%, #f1ede8fa 100%); padding: 50px 40px; text-align: center;">
                       <div style="background: rgba(255, 255, 255, 0.1); width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; border: 4px solid rgba(255, 255, 255, 0.2);">
                         <span style="font-size: 60px;">✨</span>
                       </div>

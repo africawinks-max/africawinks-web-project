@@ -24,20 +24,20 @@ interface BookingDialogProps {
 }
 
 export function BookingDialog({ children }: BookingDialogProps) {
-  const [open, setOpen] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const { toast } = useToast()
+  const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     contact: "",
     people: "",
     package: "",
-  })
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
 
     try {
       const response = await fetch("/api/booking", {
@@ -46,11 +46,11 @@ export function BookingDialog({ children }: BookingDialogProps) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+      });
 
       const data = await response.json()
 
-       if (response.ok) {
+      if (response.ok) {
         const duration = 3000
         const end = Date.now() + duration
 
@@ -76,19 +76,20 @@ export function BookingDialog({ children }: BookingDialogProps) {
             requestAnimationFrame(frame)
           }
         }
-        frame()
+
+        frame();
 
         confetti({
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
           colors: colors,
-        })
+        });
 
         toast({
           title: "Booking Request Submitted!",
           description: "We'll get back to you within 24 hours. Check your email for confirmation.",
-        })
+        });
         setOpen(false)
         setFormData({
           name: "",
@@ -96,7 +97,7 @@ export function BookingDialog({ children }: BookingDialogProps) {
           contact: "",
           people: "",
           package: "",
-        })
+        });
       } else {
         throw new Error(data.error || "Failed to submit booking")
       }

@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     try {
       await resend.emails.send({
-        from: "Africawinks <hello@africawinks.co.za>",
+        from: "Africawinks <admin@africawinks.co.za>",
         to: email,
         subject: "✨ We’ve received your Africawinks request",
           html: `
@@ -140,18 +140,18 @@ export async function POST(request: Request) {
     /* ----------------------------
        2️⃣ Admin alert
     ----------------------------- */
-    const adminHtml = await render(
-      <AdminNewBookingEmail
-        name={name}
-        email={email}
-        contact={contact}
-        people={people}
-        packageName={packageName}
-      />
-    );
+    // const adminHtml = await render(
+    //   <AdminNewBookingEmail
+    //     name={name}
+    //     email={email}
+    //     contact={contact}
+    //     people={people}
+    //     packageName={packageName}
+    //   />
+    // );
 
     await resend.emails.send({
-      from: "Africawinks <hello@africawinks.co.za>",
+      from: "Africawinks <tourinquiry@africawinks.co.za>",
       to: ADMIN_EMAIL,
       subject: "🚨 New Booking Request Received",
       html: `
