@@ -104,7 +104,7 @@ export function BookingDialog({ children }: BookingDialogProps) {
       toast({
         title: "Submission Failed",
         description: "Please try again or contact us directly.",
-        variant: "destructive",
+        variant: "default",
       })
     } finally {
       setIsLoading(false)
